@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@utility font-title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+@utility font-caption {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+@utility h1-mobile {
+  font-family: 'Raleway-Bold', sans-serif;
+  font-size: 28px;
+  line-height: 32px
+}
+
+@utility h1-desktop {
+  font-family: 'Raleway-Bold', sans-serif;
+  font-size: 40px;
+  line-height: 40px;
+}
+
+@utility h2-mobile {
+  font-family: 'Raleway-SemiBold', sans-serif;
+  font-size: 20px;
+  line-height: 24px
+}
+
+@utility font-h1 {
+  @apply h1-mobile;
+  @apply lg:h1-desktop
+}
+
+@utility font-h2 {
+  @apply h2-mobile;
+  @apply lg:h1-mobile
+}
