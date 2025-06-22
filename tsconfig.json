@@ -3,12 +3,6 @@
     "**/*.ts",
     "**/*.tsx"
   ],
-  "baseUrl": ".",
-  "paths": {
-    "@/*": [
-      "./src/*"
-    ]
-  },
   "compilerOptions": {
     "target": "ES2022",
     "jsx": "react-jsx",
@@ -32,6 +26,12 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "src/*"
+      ]
+    }
   }
 }

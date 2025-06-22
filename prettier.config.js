@@ -10,5 +10,5 @@ export default {
   printWidth: 80,
   useTabs: false,
   trailingComma: 'es5',
-  plugins: ["prettier-plugin-tailwindcss"],
+  plugins: ['prettier-plugin-tailwindcss'],
 };

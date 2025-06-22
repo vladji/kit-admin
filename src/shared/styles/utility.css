@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@utility flex-col-gap-* {
+  display: flex;
+  flex-direction: column;
+  gap: calc((var(--spacing)) * --value(integer));
+}
+
+@utility flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@utility border-rounded-s {
+  border: 1px solid var(--color-light-gray);
+  border-radius: var(--spacing);
+}
