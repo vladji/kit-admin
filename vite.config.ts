@@ -26,7 +26,6 @@ export default defineConfig({
     }),
     tailwindcss(),
     svgr({
-      // svgr options: https://react-svgr.com/docs/options/
       svgrOptions: {
         exportType: 'default',
       },
@@ -35,7 +34,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': resolve(__dirname, './src'),
+      '*': resolve(__dirname, './src'),
     },
   },
 });
