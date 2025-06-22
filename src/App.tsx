@@ -1,32 +1,11 @@
-import { RouterProvider, createRouter } from '@tanstack/react-router';
 import { ContextProvider } from 'app/providers/ContextProvider';
 import { LocaleProvider } from 'app/providers/LocaleProvider';
-import { NotFoundPage } from './pages/404';
-import { routeTree } from './routeTree.gen.ts';
-
-export const router = createRouter({
-  routeTree,
-  context: {},
-  defaultPreload: 'intent',
-  scrollRestoration: true,
-  defaultStructuralSharing: true,
-  defaultPreloadStaleTime: 0,
-  defaultNotFoundComponent: NotFoundPage,
-});
-
-// Register the router instance for type safety
-declare module '@tanstack/react-router' {
-  interface Register {
-    router: typeof router;
-  }
-}
+import RouterProvider from 'app/providers/RouterProvider';
 
 function App() {
   return (
     <ContextProvider>
-      <LocaleProvider>
-        <RouterProvider router={router} />
-      </LocaleProvider>
+      <LocaleProvider>{RouterProvider}</LocaleProvider>
     </ContextProvider>
   );
 }
