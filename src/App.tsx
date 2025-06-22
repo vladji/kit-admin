@@ -1,14 +1,31 @@
+import { RouterProvider, createRouter } from '@tanstack/react-router';
 import { ContextProvider } from 'app/providers/ContextProvider';
 import { LocaleProvider } from 'app/providers/LocaleProvider';
-import { FormattedMessage } from 'react-intl';
+import { NotFoundPage } from './pages/404';
+import { routeTree } from './routeTree.gen.ts';
+
+export const router = createRouter({
+  routeTree,
+  context: {},
+  defaultPreload: 'intent',
+  scrollRestoration: true,
+  defaultStructuralSharing: true,
+  defaultPreloadStaleTime: 0,
+  defaultNotFoundComponent: NotFoundPage,
+});
+
+// Register the router instance for type safety
+declare module '@tanstack/react-router' {
+  interface Register {
+    router: typeof router;
+  }
+}
 
 function App() {
   return (
     <ContextProvider>
       <LocaleProvider>
-        <h1>
-          <FormattedMessage defaultMessage="Привет мир" />
-        </h1>
+        <RouterProvider router={router} />
       </LocaleProvider>
     </ContextProvider>
   );
