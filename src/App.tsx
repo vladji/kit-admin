@@ -1,10 +1,16 @@
-import { Context } from 'app/providers/AppContext';
+import { ContextProvider } from 'app/providers/ContextProvider';
+import { LocaleProvider } from 'app/providers/LocaleProvider';
+import { FormattedMessage } from 'react-intl';
 
 function App() {
   return (
-    <Context>
-      <h1 className="">KIT admin</h1>
-    </Context>
+    <ContextProvider>
+      <LocaleProvider>
+        <h1>
+          <FormattedMessage defaultMessage="Привет мир" />
+        </h1>
+      </LocaleProvider>
+    </ContextProvider>
   );
 }
 

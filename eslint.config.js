@@ -55,6 +55,42 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
+
+      'sort-imports': [
+        'error',
+        {
+          ignoreCase: false,
+          ignoreMemberSort: false,
+          ignoreDeclarationSort: true,
+        },
+      ],
+      'import/order': [
+        'error',
+        {
+          groups: [
+            ['external', 'builtin'],
+            'internal',
+            ['sibling', 'parent'],
+            'index',
+          ],
+          pathGroups: [
+            {
+              pattern: '@(react|react-native)',
+              group: 'external',
+              position: 'before',
+            },
+            {
+              pattern: '@/**',
+              group: 'internal',
+            },
+          ],
+          pathGroupsExcludedImportTypes: ['internal'],
+          alphabetize: {
+            order: 'asc',
+            caseInsensitive: true,
+          },
+        },
+      ],
     },
   }
 );
