@@ -25,6 +25,11 @@
   padding-block: calc(var(--spacing) * 4);
 }
 
+@utility screen-padding {
+  @apply screen-padding-h;
+  @apply screen-padding-v;
+}
+
 @utility block-shadow {
   box-shadow: 0 1px 4px 0 rgba(12, 12, 13, 0.05);
 }

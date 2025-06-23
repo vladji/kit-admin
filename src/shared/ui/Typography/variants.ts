@@ -18,6 +18,8 @@ export const textVariants = cva('', {
     color: {
       default: '',
       brand: 'text-brand',
+      muted: 'text-text-muted',
+      alert: 'text-alert',
     },
     leading: {
       default: 'leading-5',
