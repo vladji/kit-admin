@@ -1,7 +1,10 @@
+import { Header } from './ui/Header.tsx';
+
 export const AuthPage = () => {
   return (
-    <section>
+    <>
+      <Header />
       <h1>Login</h1>
-    </section>
+    </>
   );
 };
