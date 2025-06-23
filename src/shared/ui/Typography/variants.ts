@@ -8,6 +8,7 @@ export const textVariants = cva('', {
       h2: 'font-h2',
       title: 'font-title',
       caption: 'font-caption',
+      label: 'font-label',
     },
     variant: {
       default: '',

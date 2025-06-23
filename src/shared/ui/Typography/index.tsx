@@ -10,7 +10,7 @@ type Props<T extends TextTag> = {
 } & ComponentPropsWithoutRef<T> &
   VariantProps<typeof textVariants>;
 
-export const Text = <T extends TextTag = 'span'>({
+export const Typography = <T extends TextTag = 'span'>({
   as,
   ellipsis = false,
   children,

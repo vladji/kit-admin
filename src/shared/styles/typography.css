@@ -12,6 +12,12 @@
   line-height: 16px;
 }
 
+@utility font-label {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
 @utility h1-mobile {
   font-family: 'Raleway-Bold', sans-serif;
   font-size: 28px;
