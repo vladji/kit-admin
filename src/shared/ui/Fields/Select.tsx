@@ -26,7 +26,10 @@ export const Select: FC<Props> = ({ items, label, errorMessage, ...props }) => {
   return (
     <SelectBootstrap {...props}>
       <div className="flex-col-gap-2">
-        <SelectTrigger className={cn(errorMessage && 'border-border-alert')}>
+        <SelectTrigger
+          className={cn(errorMessage && 'border-border-alert')}
+          size="sm"
+        >
           <div className="flex flex-col items-start">
             {!!label && <Typography type="label">{label}</Typography>}
             <SelectValue

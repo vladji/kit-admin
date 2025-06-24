@@ -1,8 +1,88 @@
 {
+  "+JgNvC": [
+    {
+      "type": 0,
+      "value": "Login"
+    }
+  ],
+  "+YZV7c": [
+    {
+      "type": 0,
+      "value": "Must be filled in"
+    }
+  ],
+  "2mSCS3": [
+    {
+      "type": 0,
+      "value": "Incorrect value"
+    }
+  ],
+  "LUCzCR": [
+    {
+      "type": 0,
+      "value": "Choose"
+    }
+  ],
+  "NVg6tt": [
+    {
+      "type": 0,
+      "value": "Home page"
+    }
+  ],
+  "PuZv4f": [
+    {
+      "type": 0,
+      "value": "Password"
+    }
+  ],
+  "Qu44rr": [
+    {
+      "type": 0,
+      "value": "Максимальное количество символов: "
+    },
+    {
+      "type": 1,
+      "value": "maxLength"
+    }
+  ],
   "Z3sTfu": [
     {
       "type": 0,
-      "value": "Hello world"
+      "value": "Привет мир"
+    }
+  ],
+  "bi8PJO": [
+    {
+      "type": 0,
+      "value": "Выберите значение"
+    }
+  ],
+  "iMmhTZ": [
+    {
+      "type": 0,
+      "value": "Login"
+    }
+  ],
+  "oaOmnq": [
+    {
+      "type": 0,
+      "value": "Такой страницы не существует"
+    }
+  ],
+  "qXh0mH": [
+    {
+      "type": 0,
+      "value": "Name"
+    }
+  ],
+  "wTSkvs": [
+    {
+      "type": 0,
+      "value": "Минимальное количество символов: "
+    },
+    {
+      "type": 1,
+      "value": "minLength"
     }
   ]
 }

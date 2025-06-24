@@ -1,5 +1,41 @@
 {
+  "+JgNvC": {
+    "defaultMessage": "Вход"
+  },
+  "+YZV7c": {
+    "defaultMessage": "Необходимо заполнить"
+  },
+  "2mSCS3": {
+    "defaultMessage": "Некорректное значение"
+  },
+  "LUCzCR": {
+    "defaultMessage": "Выберите"
+  },
+  "NVg6tt": {
+    "defaultMessage": "На главную"
+  },
+  "PuZv4f": {
+    "defaultMessage": "Пароль"
+  },
+  "Qu44rr": {
+    "defaultMessage": "Максимальное количество символов: {maxLength}"
+  },
   "Z3sTfu": {
     "defaultMessage": "Привет мир"
+  },
+  "bi8PJO": {
+    "defaultMessage": "Выберите значение"
+  },
+  "iMmhTZ": {
+    "defaultMessage": "Вход в кабинет"
+  },
+  "oaOmnq": {
+    "defaultMessage": "Такой страницы не существует"
+  },
+  "qXh0mH": {
+    "defaultMessage": "Имя"
+  },
+  "wTSkvs": {
+    "defaultMessage": "Минимальное количество символов: {minLength}"
   }
 }

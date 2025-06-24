@@ -1,6 +1,6 @@
 import { Controller, type FieldValues } from 'react-hook-form';
 import { useIntl } from 'react-intl';
-import { Input } from 'shared/ui/Fields/Input.tsx';
+import { Input, type InputProps } from 'shared/ui/Fields/Input.tsx';
 import type { SubjectFieldProps } from './types.ts';
 
 export const TextField = <T extends FieldValues>({
@@ -13,7 +13,7 @@ export const TextField = <T extends FieldValues>({
   regExpPattern,
   required = false,
   ...props
-}: SubjectFieldProps<T>) => {
+}: SubjectFieldProps<T> & InputProps) => {
   const intl = useIntl();
   const requiredFallbackMessage = intl.formatMessage({
     defaultMessage: 'Необходимо заполнить',
