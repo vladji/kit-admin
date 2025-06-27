@@ -1,6 +1,7 @@
 # Logs
 .idea
 SERVICE.md
+.env
 
 logs
 *.log
