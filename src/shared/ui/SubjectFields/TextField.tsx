@@ -66,6 +66,7 @@ export const TextField = <T extends FieldValues>({
       render={({ field: { value = '', onChange } }) => (
         <Input
           {...props}
+          name={fieldName}
           label={label || ''}
           value={value}
           onChange={onChange}

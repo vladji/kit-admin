@@ -1,6 +1,9 @@
 import { FormattedMessage } from 'react-intl';
+import { useGetSellersList } from 'entities/sellers/api/useGetSellersList.ts';
 
 export const AdminHomePage = () => {
+  const { data } = useGetSellersList();
+
   return (
     <section>
       <h1>Admin</h1>

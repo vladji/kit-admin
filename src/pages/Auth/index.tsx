@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FormattedMessage } from 'react-intl';
+import { MainButton } from 'shared/ui/Buttons/MainButton.tsx';
 import { TextField } from 'shared/ui/SubjectFields/TextField.tsx';
 import { Typography } from 'shared/ui/Typography';
-import type { AuthProps } from './types.ts';
+import type { PostLoginProps } from './api/types.ts';
+import { usePostLogin } from './api/usePostLogin.ts';
 import { EyeButton } from './ui/EyeButton.tsx';
 import { Header } from './ui/Header.tsx';
-import { MainButton } from '../../shared/ui/Buttons/MainButton.tsx';
 
 export const AuthPage = () => {
   const [hidePassword, setHidePassword] = useState(true);
@@ -19,12 +20,14 @@ export const AuthPage = () => {
     formState: { errors },
     control,
     handleSubmit,
-  } = useForm<AuthProps>({
+  } = useForm<PostLoginProps>({
     mode: 'onSubmit',
   });
 
-  const onSubmit = (values: AuthProps) => {
-    return null;
+  const { postLogin } = usePostLogin();
+
+  const onSubmit = async (data: PostLoginProps) => {
+    await postLogin(data);
   };
 
   return (
@@ -37,9 +40,10 @@ export const AuthPage = () => {
         <form className="flex-col-gap-5" onSubmit={handleSubmit(onSubmit)}>
           <TextField
             control={control}
-            error={errors.name}
-            fieldName="name"
+            error={errors.uniqId}
+            fieldName="uniqId"
             label={<FormattedMessage defaultMessage="Имя" />}
+            autoComplete="username"
             required
           />
           <TextField
@@ -51,6 +55,7 @@ export const AuthPage = () => {
             endAdornment={
               <EyeButton isHide={hidePassword} onClick={toggleHidePassword} />
             }
+            autoComplete="current-password"
             required
           />
           <MainButton className="w-full">
