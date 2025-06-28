@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { Languages } from 'lucide-react';
 import { AppContext } from 'app/context';
 import { Locales } from 'app/locales/types.ts';
 import { Select, type SelectItemsProps } from 'shared/ui/Fields/Select.tsx';
@@ -22,10 +23,13 @@ export const LocaleSelect = () => {
   };
 
   return (
-    <Select
-      items={selectItems}
-      defaultValue={locale}
-      onValueChange={onValueChange}
-    />
+    <div className="flex items-center gap-2">
+      <Languages />
+      <Select
+        items={selectItems}
+        defaultValue={locale}
+        onValueChange={onValueChange}
+      />
+    </div>
   );
 };

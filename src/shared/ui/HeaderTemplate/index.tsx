@@ -6,6 +6,6 @@ export const HeaderTemplate = ({ children }: { children: ReactNode }) => (
     <Typography as="h1" type="title">
       KIT admin
     </Typography>
-    <div className="flex items-center gap-2">{children}</div>
+    {children}
   </header>
 );

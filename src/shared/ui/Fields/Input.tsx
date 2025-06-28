@@ -21,7 +21,7 @@ export const Input: FC<InputProps> = ({
     <div className="flex-col-gap-1 flex-1">
       <div
         className={cn(
-          'relative flex h-10 items-center rounded-lg border px-4 py-1',
+          'relative flex h-10 items-center rounded-lg border px-2 py-1',
           errorMessage ? 'border-alert' : 'border-border-color',
           disabled ? 'bg-light-gray' : 'bg-light'
         )}

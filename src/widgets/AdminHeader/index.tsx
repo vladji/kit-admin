@@ -1,3 +1,14 @@
+import { LocaleSelect } from 'features/LocaleSelect';
+import { Logout } from 'features/Logout';
+import { HeaderTemplate } from 'shared/ui/HeaderTemplate';
+
 export const AdminHeader = () => {
-  return <header>admin header</header>;
+  return (
+    <HeaderTemplate>
+      <div className="flex-gap-6">
+        <LocaleSelect />
+        <Logout />
+      </div>
+    </HeaderTemplate>
+  );
 };

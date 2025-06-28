@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@utility flex-gap-* {
+  display: flex;
+  gap: calc((var(--spacing)) * --value(integer));
+}
+
 @utility flex-col-gap-* {
   display: flex;
   flex-direction: column;
