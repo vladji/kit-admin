@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
-import { Role } from 'app/config/types.ts';
+import { UserRole } from 'app/config/types.ts';
 import { router } from 'app/providers/RouterProvider';
 import { LocalStorageKeys } from 'app/storage/types.ts';
 import { getTokenPayload } from 'shared/utils/jwt.ts';
@@ -17,8 +17,12 @@ export const usePostLogin = () => {
 
         const userRole = getTokenPayload()?.role;
 
-        if (userRole === Role.Admin) {
+        if (userRole === UserRole.Admin) {
           router.navigate({ to: '/admin', replace: true });
+        }
+
+        if (userRole === UserRole.Seller) {
+          router.navigate({ to: '/seller', replace: true });
         }
       }
     },

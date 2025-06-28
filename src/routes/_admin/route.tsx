@@ -1,19 +1,15 @@
 import { createFileRoute, redirect } from '@tanstack/react-router';
-import { Role } from 'app/config/types.ts';
+import { UserRole } from 'app/config/types.ts';
 import { getTokenPayload } from 'shared/utils/jwt.ts';
 import { AdminLayout } from 'widgets/AdminLayout';
 
-export const Route = createFileRoute('/admin/_admin')({
+export const Route = createFileRoute('/_admin')({
   component: AdminLayout,
-  beforeLoad: ({ location }) => {
-    const isAdmin = getTokenPayload()?.role === Role.Admin;
-
+  beforeLoad: () => {
+    const isAdmin = getTokenPayload()?.role === UserRole.Admin;
     if (!isAdmin) {
       throw redirect({
         to: '/',
-        search: {
-          redirect: location.href,
-        },
       });
     }
   },

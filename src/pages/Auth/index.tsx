@@ -58,7 +58,7 @@ export const AuthPage = () => {
             autoComplete="current-password"
             required
           />
-          <MainButton className="w-full">
+          <MainButton type="submit" className="w-full">
             <FormattedMessage defaultMessage="Вход" />
           </MainButton>
         </form>

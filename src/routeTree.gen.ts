@@ -8,18 +8,19 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { createFileRoute } from '@tanstack/react-router'
-
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SellerRouteRouteImport } from './routes/_seller/route'
+import { Route as AdminRouteRouteImport } from './routes/_admin/route'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AdminAdminRouteRouteImport } from './routes/admin/_admin/route'
-import { Route as AdminAdminIndexRouteImport } from './routes/admin/_admin/index'
+import { Route as SellerSellerRouteImport } from './routes/_seller/seller'
+import { Route as AdminAdminRouteImport } from './routes/_admin/admin'
 
-const AdminRouteImport = createFileRoute('/admin')()
-
-const AdminRoute = AdminRouteImport.update({
-  id: '/admin',
-  path: '/admin',
+const SellerRouteRoute = SellerRouteRouteImport.update({
+  id: '/_seller',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRouteRoute = AdminRouteRouteImport.update({
+  id: '/_admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -27,52 +28,69 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminAdminRouteRoute = AdminAdminRouteRouteImport.update({
-  id: '/_admin',
-  getParentRoute: () => AdminRoute,
+const SellerSellerRoute = SellerSellerRouteImport.update({
+  id: '/seller',
+  path: '/seller',
+  getParentRoute: () => SellerRouteRoute,
 } as any)
-const AdminAdminIndexRoute = AdminAdminIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => AdminAdminRouteRoute,
+const AdminAdminRoute = AdminAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => AdminRouteRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/admin': typeof AdminAdminRouteRouteWithChildren
-  '/admin/': typeof AdminAdminIndexRoute
+  '/admin': typeof AdminAdminRoute
+  '/seller': typeof SellerSellerRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/admin': typeof AdminAdminIndexRoute
+  '/admin': typeof AdminAdminRoute
+  '/seller': typeof SellerSellerRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/admin': typeof AdminRouteWithChildren
-  '/admin/_admin': typeof AdminAdminRouteRouteWithChildren
-  '/admin/_admin/': typeof AdminAdminIndexRoute
+  '/_admin': typeof AdminRouteRouteWithChildren
+  '/_seller': typeof SellerRouteRouteWithChildren
+  '/_admin/admin': typeof AdminAdminRoute
+  '/_seller/seller': typeof SellerSellerRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/admin' | '/admin/'
+  fullPaths: '/' | '/admin' | '/seller'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/admin'
-  id: '__root__' | '/' | '/admin' | '/admin/_admin' | '/admin/_admin/'
+  to: '/' | '/admin' | '/seller'
+  id:
+    | '__root__'
+    | '/'
+    | '/_admin'
+    | '/_seller'
+    | '/_admin/admin'
+    | '/_seller/seller'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AdminRoute: typeof AdminRouteWithChildren
+  AdminRouteRoute: typeof AdminRouteRouteWithChildren
+  SellerRouteRoute: typeof SellerRouteRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/admin': {
-      id: '/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AdminRouteImport
+    '/_seller': {
+      id: '/_seller'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof SellerRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_admin': {
+      id: '/_admin'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof AdminRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -82,48 +100,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/_admin': {
-      id: '/admin/_admin'
+    '/_seller/seller': {
+      id: '/_seller/seller'
+      path: '/seller'
+      fullPath: '/seller'
+      preLoaderRoute: typeof SellerSellerRouteImport
+      parentRoute: typeof SellerRouteRoute
+    }
+    '/_admin/admin': {
+      id: '/_admin/admin'
       path: '/admin'
       fullPath: '/admin'
-      preLoaderRoute: typeof AdminAdminRouteRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/_admin/': {
-      id: '/admin/_admin/'
-      path: '/'
-      fullPath: '/admin/'
-      preLoaderRoute: typeof AdminAdminIndexRouteImport
-      parentRoute: typeof AdminAdminRouteRoute
+      preLoaderRoute: typeof AdminAdminRouteImport
+      parentRoute: typeof AdminRouteRoute
     }
   }
 }
 
-interface AdminAdminRouteRouteChildren {
-  AdminAdminIndexRoute: typeof AdminAdminIndexRoute
+interface AdminRouteRouteChildren {
+  AdminAdminRoute: typeof AdminAdminRoute
 }
 
-const AdminAdminRouteRouteChildren: AdminAdminRouteRouteChildren = {
-  AdminAdminIndexRoute: AdminAdminIndexRoute,
+const AdminRouteRouteChildren: AdminRouteRouteChildren = {
+  AdminAdminRoute: AdminAdminRoute,
 }
 
-const AdminAdminRouteRouteWithChildren = AdminAdminRouteRoute._addFileChildren(
-  AdminAdminRouteRouteChildren,
+const AdminRouteRouteWithChildren = AdminRouteRoute._addFileChildren(
+  AdminRouteRouteChildren,
 )
 
-interface AdminRouteChildren {
-  AdminAdminRouteRoute: typeof AdminAdminRouteRouteWithChildren
+interface SellerRouteRouteChildren {
+  SellerSellerRoute: typeof SellerSellerRoute
 }
 
-const AdminRouteChildren: AdminRouteChildren = {
-  AdminAdminRouteRoute: AdminAdminRouteRouteWithChildren,
+const SellerRouteRouteChildren: SellerRouteRouteChildren = {
+  SellerSellerRoute: SellerSellerRoute,
 }
 
-const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+const SellerRouteRouteWithChildren = SellerRouteRoute._addFileChildren(
+  SellerRouteRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AdminRoute: AdminRouteWithChildren,
+  AdminRouteRoute: AdminRouteRouteWithChildren,
+  SellerRouteRoute: SellerRouteRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
