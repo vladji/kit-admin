@@ -1,12 +1,10 @@
-import { FormattedMessage } from 'react-intl';
+import { ShopTable } from 'entities/shop/ui/ShopTable.tsx';
 
 export const AdminHomePage = () => {
   return (
     <section>
       <h1>Admin</h1>
-      <h2>
-        <FormattedMessage defaultMessage="Привет мир" />
-      </h2>
+      <ShopTable />
     </section>
   );
 };

@@ -2,7 +2,7 @@ import { DEV_MODE, ENV_API_URL } from 'app/config/constants.ts';
 
 export const API_URL = DEV_MODE ? 'http://localhost:3001/api' : ENV_API_URL;
 
-export const REFRESH_TOKEN_URL = '/refresh-token';
+export const REFRESH_TOKEN_URL = '/auth/refresh-token';
 
 export enum STATUS {
   SUCCESS = 200,
