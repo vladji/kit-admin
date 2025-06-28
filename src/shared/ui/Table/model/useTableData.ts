@@ -1,8 +1,9 @@
 import { useMemo } from 'react';
-import type { TableComponentProps } from '../index.tsx';
+
 import type {
   TableColumnConfig,
   TableDataConfig,
+  TableProps,
   TableRowMinimalProps,
 } from './types.ts';
 
@@ -16,7 +17,7 @@ export const useTableData = <
 >({
   columns,
   data,
-}: TableComponentProps<K>) => {
+}: TableProps<K>) => {
   return useMemo(() => {
     if (data) {
       return data.map<TableDataConfig<K, T>>((item) => {

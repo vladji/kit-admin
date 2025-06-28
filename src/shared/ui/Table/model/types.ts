@@ -17,3 +17,9 @@ export type TableDataConfig<
 > = TableRowMinimalProps & {
   [E in ValidTableId<K, T>]: string | number | ReactNode;
 };
+
+export interface TableProps<K> {
+  columns: TableColumnConfig<K>[];
+  data?: K[];
+  loading?: boolean;
+}
