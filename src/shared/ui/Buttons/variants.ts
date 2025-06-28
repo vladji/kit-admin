@@ -6,7 +6,7 @@ export const mainButtonVariants = cva(
     variants: {
       variant: {
         default:
-          'bg-brand text-white shadow hover:bg-brand/90 disabled:bg-gray-disabled',
+          'bg-brand text-white shadow hover:bg-brand/90 disabled:bg-disabled',
         outline: 'border-[1.5px] border-border-color text-base-gray',
       },
       size: {

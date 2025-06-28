@@ -4,10 +4,11 @@
   /*--*: initial;*/
   --color-transparent: #fff00;
   --color-black: #0e0e0e;
+  --color-foreground: #0e0e0e;
   --color-light: #fff;
   --color-base-gray: #696969;
   --color-light-gray: #ededed;
-  --color-gray-disabled: #e0e0e0;
+  --color-disabled: #e0e0e0;
   --color-text-muted: #b0b0b0;
   --color-brand: #20748b;
   --color-brand-light: #69fff8;
@@ -17,6 +18,7 @@
   --color-destructive: #ff3b30;
   --color-alert: #ff0230;
   --color-modal-backdropp: #628b727a;
+  --color-backdropp: rgba(176, 176, 176, 0.5);
 
   /* custom sizes */
   --header-height: 80px;
