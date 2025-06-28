@@ -1,6 +1,6 @@
 import { FormattedMessage } from 'react-intl';
 
-export const SellerHomePage = () => {
+export const ShopHomePage = () => {
   return (
     <section>
       <h1>Seller</h1>

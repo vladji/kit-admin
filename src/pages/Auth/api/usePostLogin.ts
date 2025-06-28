@@ -21,8 +21,8 @@ export const usePostLogin = () => {
           router.navigate({ to: '/admin', replace: true });
         }
 
-        if (userRole === UserRole.Seller) {
-          router.navigate({ to: '/seller', replace: true });
+        if (userRole === UserRole.Shop) {
+          router.navigate({ to: '/shop', replace: true });
         }
       }
     },

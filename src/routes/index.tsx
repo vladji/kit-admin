@@ -14,9 +14,9 @@ export const Route = createFileRoute('/')({
       });
     }
 
-    if (role === UserRole.Seller) {
+    if (role === UserRole.Shop) {
       throw redirect({
-        to: '/seller',
+        to: '/shop',
       });
     }
   },

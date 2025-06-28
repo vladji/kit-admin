@@ -1,3 +1,3 @@
-export const SellerHeader = () => {
+export const ShopHeader = () => {
   return <header>seller header</header>;
 };

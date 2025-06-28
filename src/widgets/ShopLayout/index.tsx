@@ -1,12 +1,12 @@
 import { Suspense } from 'react';
 import { Outlet } from '@tanstack/react-router';
 import { PageSpinner } from 'shared/ui/PageSpinner';
-import { SellerHeader } from '../SellerHeader';
+import { ShopHeader } from '../ShopHeader';
 
-export const SellerLayout = () => {
+export const ShopLayout = () => {
   return (
     <>
-      <SellerHeader />
+      <ShopHeader />
       <Suspense fallback={<PageSpinner />}>
         <Outlet />
       </Suspense>

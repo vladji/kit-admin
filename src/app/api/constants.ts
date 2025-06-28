@@ -16,5 +16,5 @@ export enum STATUS {
 }
 
 export enum QueryKeys {
-  GetSellersList = 'getSellersList',
+  GetShopsList = 'getShopsList',
 }
