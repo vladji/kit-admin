@@ -13,6 +13,7 @@ export const textVariants = cva('', {
     variant: {
       default: '',
       bold: 'font-bold',
+      semibold: 'font-semibold',
       center: 'text-center',
     },
     color: {

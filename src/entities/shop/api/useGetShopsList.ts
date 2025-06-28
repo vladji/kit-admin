@@ -6,5 +6,6 @@ export const useGetShopsList = () => {
   return useQuery({
     queryKey: [QueryKeys.GetShopsList],
     queryFn: getShopList,
+    refetchOnWindowFocus: false,
   });
 };

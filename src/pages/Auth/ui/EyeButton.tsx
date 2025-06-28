@@ -8,7 +8,7 @@ interface Props {
 
 export const EyeButton: FC<Props> = ({ isHide, onClick }) => {
   return (
-    <button onClick={onClick}>
+    <button type="button" onClick={onClick}>
       {isHide ? <Eye strokeWidth={1} /> : <EyeOff strokeWidth={1} />}
     </button>
   );

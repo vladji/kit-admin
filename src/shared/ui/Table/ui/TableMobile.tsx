@@ -1,5 +1,6 @@
 import type { Key } from 'react';
 import { SpinnerBlock } from 'shared/ui/SpinnerBlock';
+import { Typography } from '../../Typography';
 import type { TableProps } from '../model/types.ts';
 import { useTableData } from '../model/useTableData.ts';
 
@@ -22,10 +23,10 @@ export const TableMobile = <K extends object>({
             {columns.map(({ id, title }) => (
               <div
                 key={id as Key}
-                className="flex-gap-3 items-center justify-between"
+                className="flex-gap-3 border-disabled items-center justify-between border-b pb-1 last:border-b-0"
               >
-                <span>{title}</span>
-                <span>{row[id]}</span>
+                <Typography variant="semibold">{title}</Typography>
+                <Typography>{row[id]}</Typography>
               </div>
             ))}
           </li>
