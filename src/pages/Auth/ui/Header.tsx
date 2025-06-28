@@ -4,7 +4,7 @@ import { HeaderTemplate } from 'shared/ui/HeaderTemplate';
 
 export const Header: FC = () => {
   return (
-    <HeaderTemplate>
+    <HeaderTemplate logoLink="/" logoEmoji="🐳">
       <LocaleSelect />
     </HeaderTemplate>
   );

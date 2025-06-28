@@ -1,10 +1,16 @@
+import type { FC } from 'react';
 import { LocaleSelect } from 'features/LocaleSelect';
 import { Logout } from 'features/Logout';
-import { HeaderTemplate } from 'shared/ui/HeaderTemplate';
+import {
+  HeaderTemplate,
+  type HeaderTemplateProps,
+} from 'shared/ui/HeaderTemplate';
 
-export const AdminHeader = () => {
+type Props = Omit<HeaderTemplateProps, 'children'>;
+
+export const AdminHeader: FC<Props> = (props) => {
   return (
-    <HeaderTemplate>
+    <HeaderTemplate {...props}>
       <div className="flex-gap-6">
         <LocaleSelect />
         <Logout />
