@@ -15,6 +15,7 @@ const TableDesktop = <K extends object>({
   columns,
   data,
   loading = false,
+  onRowClick,
 }: TableProps<K>) => {
   const tableData = useTableData({ columns, data });
 
@@ -23,7 +24,7 @@ const TableDesktop = <K extends object>({
       {loading && <SpinnerBlock />}
       <TableBootstrap>
         <TableHeader>
-          <TableRow>
+          <TableRow disabledHover>
             {columns.map(({ id, title }) => (
               <TableHead key={id as Key}>{title}</TableHead>
             ))}
@@ -39,7 +40,7 @@ const TableDesktop = <K extends object>({
           )}
           {!!tableData?.length &&
             tableData.map((row, index) => (
-              <TableRow key={index}>
+              <TableRow key={index} onClick={() => onRowClick?.(row)}>
                 {columns.map(({ id: columnId }) => (
                   <TableCell key={columnId as Key}>
                     {row[columnId as keyof typeof row]}

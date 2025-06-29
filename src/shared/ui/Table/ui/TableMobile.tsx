@@ -8,6 +8,7 @@ export const TableMobile = <K extends object>({
   columns,
   data,
   loading = false,
+  onRowClick,
 }: TableProps<K>) => {
   const tableData = useTableData({ columns, data });
 
@@ -19,6 +20,7 @@ export const TableMobile = <K extends object>({
           <li
             key={row.id}
             className="flex-col-gap-2 border-border-color rounded-sm border-1 p-4"
+            onClick={() => onRowClick?.(row)}
           >
             {columns.map(({ id, title }) => (
               <div
