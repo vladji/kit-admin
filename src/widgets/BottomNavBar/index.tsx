@@ -10,9 +10,9 @@ interface Props {
 
 export const BottomNavBar: FC<Props> = ({ buttons }) => {
   return (
-    <nav className="block-shadow-top fixed right-0 bottom-0 left-0 flex h-(--bottom-nav-bar-height) items-center justify-evenly gap-4 px-4 py-3">
+    <nav className="bg-light block-shadow-top fixed right-0 bottom-0 left-0 flex h-(--bottom-nav-bar-height) items-center justify-evenly gap-4 px-4 py-3">
       {buttons.map(({ link, Icon, text }) => (
-        <BottomNavButton link={link} Icon={Icon} text={text} />
+        <BottomNavButton key={link} link={link} Icon={Icon} text={text} />
       ))}
     </nav>
   );

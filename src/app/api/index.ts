@@ -68,13 +68,16 @@ api.interceptors.response.use(
           credentials: 'include',
         });
       }
+
+      return error;
     }
 
     if (error.status === STATUS.FORBIDDEN) {
       localStorage.removeItem(LocalStorageKeys.Token);
       router.navigate({ to: '/', replace: true });
-      return error;
+      return;
     }
+
     return error;
   }
 );
