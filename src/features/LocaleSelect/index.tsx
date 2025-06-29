@@ -24,7 +24,7 @@ export const LocaleSelect = () => {
 
   return (
     <div className="flex items-center gap-2">
-      <Languages />
+      <Languages size={20} />
       <Select
         items={selectItems}
         defaultValue={locale}

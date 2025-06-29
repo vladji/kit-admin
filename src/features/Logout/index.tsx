@@ -14,5 +14,12 @@ export const Logout = () => {
     }
   };
 
-  return <GhostButton onClick={onClick} Icon={LogOut} />;
+  return (
+    <GhostButton
+      onClick={onClick}
+      Icon={LogOut}
+      iconSize={20}
+      iconColor="--color-black"
+    />
+  );
 };
