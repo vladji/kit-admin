@@ -54,3 +54,7 @@
 @utility block-shadow-right {
   box-shadow: 1px 0 4px 0 rgba(12, 12, 13, 0.05);
 }
+
+@utility main-desktop-height {
+  max-height: calc(100dvh - (var(--header-height) + 4px));
+}

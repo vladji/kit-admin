@@ -6,7 +6,7 @@ import { DesktopSidebar } from 'shared/ui/DesktopSidebar';
 
 const DesktopLayout = () => {
   return (
-    <main className="flex flex-1">
+    <main className="main-desktop-height flex flex-1 overflow-y-auto">
       <DesktopSidebar>
         <GhostButton link="/admin" Icon={House}>
           <FormattedMessage defaultMessage="Главная" />
@@ -15,7 +15,7 @@ const DesktopLayout = () => {
           <FormattedMessage defaultMessage="Магазины" />
         </GhostButton>
       </DesktopSidebar>
-      <section className="flex-1 overflow-auto">
+      <section className="flex flex-1 flex-col">
         <Outlet />
       </section>
     </main>

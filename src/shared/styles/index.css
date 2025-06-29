@@ -31,13 +31,13 @@ body {
   display: flex;
   /*place-items: center;*/
   /*min-width: 320px;*/
-  min-height: 100vh;
+  /*min-height: 100vh;*/
 }
 
 #root {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  flex: 1;
 }
 
 @media (prefers-color-scheme: light) {

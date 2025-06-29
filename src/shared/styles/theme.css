@@ -21,5 +21,6 @@
   --color-backdropp: rgba(176, 176, 176, 0.5);
 
   /* custom sizes */
+  --header-height: 56px;
   --bottom-nav-bar-height: 78px;
 }
