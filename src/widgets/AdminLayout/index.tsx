@@ -1,8 +1,8 @@
 import { Suspense, lazy } from 'react';
+import { useIsMobile } from 'shared/hooks/useIsMobile.ts';
 import { PageSpinner } from 'shared/ui/PageSpinner';
 import { AdminHeader } from 'widgets/AdminHeader';
 import { MobileLayout } from './ui/Mobile.tsx';
-import { useIsMobile } from '../../shared/hooks/useIsMobile.ts';
 
 const DesktopLayout = lazy(() => import('widgets/AdminLayout/ui/Desktop.tsx'));
 

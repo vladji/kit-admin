@@ -21,13 +21,6 @@ export const GhostButton: FC<Props> = ({
   link,
   ...props
 }) => {
-  const content = (
-    <>
-      {!!Icon && <Icon size={iconSize} color={`var(${iconColor})`} />}
-      {!!children && <span>{children}</span>}
-    </>
-  );
-
   const className = cn(
     'flex-gap-2 items-center cursor-pointer px-2 py-1 hover:bg-disabled/50 transition-colors rounded-sm',
     props.className
@@ -38,16 +31,21 @@ export const GhostButton: FC<Props> = ({
       <Link
         {...(props as ComponentProps<typeof Link>)}
         to={link}
-        className={className}
+        className={cn(
+          className,
+          '[&.active]:text-brand [&.active]:bg-brand-light/10'
+        )}
       >
-        {content}
+        {!!Icon && <Icon className="text-inherit" size={iconSize} />}
+        {!!children && <span>{children}</span>}
       </Link>
     );
   }
 
   return (
     <button {...(props as ComponentProps<'button'>)} className={className}>
-      {content}
+      {!!Icon && <Icon size={iconSize} color={`var(${iconColor})`} />}
+      {!!children && <span>{children}</span>}
     </button>
   );
 };
