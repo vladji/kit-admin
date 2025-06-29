@@ -1,4 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
+import { toast } from 'sonner';
+import { STATUS } from 'app/api/constants.ts';
 import { UserRole } from 'app/config/types.ts';
 import { router } from 'app/providers/RouterProvider';
 import { LocalStorageKeys } from 'app/storage/types.ts';
@@ -10,6 +12,15 @@ export const usePostLogin = () => {
   const { mutateAsync } = useMutation<Response, unknown, PostLoginProps>({
     mutationFn: (data) => postLogin(data),
     onSuccess: async (response) => {
+      if (response?.status !== STATUS.SUCCESS) {
+        const data = (await response?.json()) as LoginResponseProps;
+        const errorMessage = data.message || data.error;
+        if (errorMessage) {
+          toast.error(errorMessage);
+        }
+        return;
+      }
+
       const data = (await response.json()) as LoginResponseProps;
 
       if (data.accessToken) {

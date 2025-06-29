@@ -1,4 +1,5 @@
 import axios, { AxiosHeaders, type AxiosRequestConfig } from 'axios';
+import { toast } from 'sonner';
 import type { LoginResponseProps } from 'pages/Auth/api/types.ts';
 import { API_URL, REFRESH_TOKEN_URL, STATUS } from './constants.ts';
 import { transformAxiosHeaders } from './utils.ts';
@@ -33,6 +34,12 @@ api.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config as AxiosRequestConfig;
     const isRefreshTokenPath = originalRequest.url === REFRESH_TOKEN_URL;
+
+    if (error.status === STATUS.UNAUTHORIZED && isRefreshTokenPath) {
+      localStorage.removeItem(LocalStorageKeys.Token);
+      router.navigate({ to: '/', replace: true });
+      return error;
+    }
 
     if (error.status === STATUS.UNAUTHORIZED && !isRefreshTokenPath) {
       localStorage.removeItem(LocalStorageKeys.Token);
@@ -72,11 +79,11 @@ api.interceptors.response.use(
       return error;
     }
 
-    if (error.status === STATUS.FORBIDDEN) {
-      localStorage.removeItem(LocalStorageKeys.Token);
-      router.navigate({ to: '/', replace: true });
-      return;
-    }
+    const errorStatus = error.response?.status;
+    const errorStatusText = error.response?.statusText;
+    const responseMessage = error.response?.data?.message;
+    const errorMessage = `${errorStatus}\n${errorStatusText || ''}\n${responseMessage || ''}`;
+    toast.error(errorMessage);
 
     return error;
   }
