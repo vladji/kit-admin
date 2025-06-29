@@ -39,6 +39,18 @@
   padding: calc(var(--spacing) * 4);
 }
 
-@utility block-shadow {
+@utility block-shadow-top {
+  box-shadow: 0 -1px 4px 0 rgba(12, 12, 13, 0.05);
+}
+
+@utility block-shadow-bottom {
   box-shadow: 0 1px 4px 0 rgba(12, 12, 13, 0.05);
+}
+
+@utility block-shadow-left {
+  box-shadow: -1px 0 4px 0 rgba(12, 12, 13, 0.05);
+}
+
+@utility block-shadow-right {
+  box-shadow: 1px 0 4px 0 rgba(12, 12, 13, 0.05);
 }

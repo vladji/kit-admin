@@ -1,14 +1,20 @@
-import { Suspense } from 'react';
-import { Outlet } from '@tanstack/react-router';
+import { Suspense, lazy } from 'react';
 import { PageSpinner } from 'shared/ui/PageSpinner';
 import { AdminHeader } from 'widgets/AdminHeader';
+import { MobileLayout } from './ui/Mobile.tsx';
+import { useIsMobile } from '../../shared/hooks/useIsMobile.ts';
+
+const DesktopLayout = lazy(() => import('widgets/AdminLayout/ui/Desktop.tsx'));
 
 export const AdminLayout = () => {
+  const isMobile = useIsMobile();
+
   return (
     <>
-      <AdminHeader />
+      <AdminHeader logoLink="/admin" logoText="admin" logoEmoji="🐳" />
       <Suspense fallback={<PageSpinner />}>
-        <Outlet />
+        {isMobile && <MobileLayout />}
+        {!isMobile && <DesktopLayout />}
       </Suspense>
     </>
   );
