@@ -18,7 +18,7 @@ export type TableDataConfig<
   [E in ValidTableId<K, T>]: string | number | ReactNode;
 };
 
-export type OnTableRowClick = <K>(
+export type OnTableRowClick<K> = (
   data: TableDataConfig<K, TableColumnConfig<K>[]>
 ) => void;
 
@@ -26,5 +26,5 @@ export interface TableProps<K> {
   columns: TableColumnConfig<K>[];
   data?: K[];
   loading?: boolean;
-  onRowClick?: OnTableRowClick;
+  onRowClick?: OnTableRowClick<K>;
 }

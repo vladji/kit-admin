@@ -13,8 +13,9 @@ import { Route as ShopRouteRouteImport } from './routes/_shop/route'
 import { Route as AdminRouteRouteImport } from './routes/_admin/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ShopShopRouteImport } from './routes/_shop/shop'
-import { Route as AdminShopsRouteImport } from './routes/_admin/shops'
 import { Route as AdminAdminRouteImport } from './routes/_admin/admin'
+import { Route as AdminShopsIndexRouteImport } from './routes/_admin/shops/index'
+import { Route as AdminShopsShopIdRouteImport } from './routes/_admin/shops/$shopId'
 
 const ShopRouteRoute = ShopRouteRouteImport.update({
   id: '/_shop',
@@ -34,28 +35,35 @@ const ShopShopRoute = ShopShopRouteImport.update({
   path: '/shop',
   getParentRoute: () => ShopRouteRoute,
 } as any)
-const AdminShopsRoute = AdminShopsRouteImport.update({
-  id: '/shops',
-  path: '/shops',
-  getParentRoute: () => AdminRouteRoute,
-} as any)
 const AdminAdminRoute = AdminAdminRouteImport.update({
   id: '/admin',
   path: '/admin',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminShopsIndexRoute = AdminShopsIndexRouteImport.update({
+  id: '/shops/',
+  path: '/shops/',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminShopsShopIdRoute = AdminShopsShopIdRouteImport.update({
+  id: '/shops/$shopId',
+  path: '/shops/$shopId',
   getParentRoute: () => AdminRouteRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admin': typeof AdminAdminRoute
-  '/shops': typeof AdminShopsRoute
   '/shop': typeof ShopShopRoute
+  '/shops/$shopId': typeof AdminShopsShopIdRoute
+  '/shops': typeof AdminShopsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/admin': typeof AdminAdminRoute
-  '/shops': typeof AdminShopsRoute
   '/shop': typeof ShopShopRoute
+  '/shops/$shopId': typeof AdminShopsShopIdRoute
+  '/shops': typeof AdminShopsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -63,22 +71,24 @@ export interface FileRoutesById {
   '/_admin': typeof AdminRouteRouteWithChildren
   '/_shop': typeof ShopRouteRouteWithChildren
   '/_admin/admin': typeof AdminAdminRoute
-  '/_admin/shops': typeof AdminShopsRoute
   '/_shop/shop': typeof ShopShopRoute
+  '/_admin/shops/$shopId': typeof AdminShopsShopIdRoute
+  '/_admin/shops/': typeof AdminShopsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/admin' | '/shops' | '/shop'
+  fullPaths: '/' | '/admin' | '/shop' | '/shops/$shopId' | '/shops'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/admin' | '/shops' | '/shop'
+  to: '/' | '/admin' | '/shop' | '/shops/$shopId' | '/shops'
   id:
     | '__root__'
     | '/'
     | '/_admin'
     | '/_shop'
     | '/_admin/admin'
-    | '/_admin/shops'
     | '/_shop/shop'
+    | '/_admin/shops/$shopId'
+    | '/_admin/shops/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -117,13 +127,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ShopShopRouteImport
       parentRoute: typeof ShopRouteRoute
     }
-    '/_admin/shops': {
-      id: '/_admin/shops'
-      path: '/shops'
-      fullPath: '/shops'
-      preLoaderRoute: typeof AdminShopsRouteImport
-      parentRoute: typeof AdminRouteRoute
-    }
     '/_admin/admin': {
       id: '/_admin/admin'
       path: '/admin'
@@ -131,17 +134,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminAdminRouteImport
       parentRoute: typeof AdminRouteRoute
     }
+    '/_admin/shops/': {
+      id: '/_admin/shops/'
+      path: '/shops'
+      fullPath: '/shops'
+      preLoaderRoute: typeof AdminShopsIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/_admin/shops/$shopId': {
+      id: '/_admin/shops/$shopId'
+      path: '/shops/$shopId'
+      fullPath: '/shops/$shopId'
+      preLoaderRoute: typeof AdminShopsShopIdRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
   }
 }
 
 interface AdminRouteRouteChildren {
   AdminAdminRoute: typeof AdminAdminRoute
-  AdminShopsRoute: typeof AdminShopsRoute
+  AdminShopsShopIdRoute: typeof AdminShopsShopIdRoute
+  AdminShopsIndexRoute: typeof AdminShopsIndexRoute
 }
 
 const AdminRouteRouteChildren: AdminRouteRouteChildren = {
   AdminAdminRoute: AdminAdminRoute,
-  AdminShopsRoute: AdminShopsRoute,
+  AdminShopsShopIdRoute: AdminShopsShopIdRoute,
+  AdminShopsIndexRoute: AdminShopsIndexRoute,
 }
 
 const AdminRouteRouteWithChildren = AdminRouteRoute._addFileChildren(

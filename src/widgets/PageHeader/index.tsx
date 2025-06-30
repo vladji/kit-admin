@@ -5,7 +5,7 @@ import { Typography } from 'shared/ui/Typography';
 
 interface Props {
   children?: ReactElement;
-  title?: ReactElement;
+  title?: string | ReactElement;
   toBack?: boolean;
 }
 
