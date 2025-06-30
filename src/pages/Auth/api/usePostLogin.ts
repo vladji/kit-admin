@@ -1,7 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 import { toast } from 'sonner';
 import { STATUS } from 'app/api/constants.ts';
-import { UserRole } from 'app/config/types.ts';
 import { router } from 'app/providers/RouterProvider';
 import { LocalStorageKeys } from 'app/storage/types.ts';
 import { getTokenPayload } from 'shared/utils/jwt.ts';
@@ -26,13 +25,13 @@ export const usePostLogin = () => {
       if (data.accessToken) {
         localStorage.setItem(LocalStorageKeys.Token, data.accessToken);
 
-        const userRole = getTokenPayload()?.role;
+        const userRole = getTokenPayload()?.roles;
 
-        if (userRole === UserRole.Admin) {
+        if (userRole?.admin) {
           router.navigate({ to: '/admin', replace: true });
         }
 
-        if (userRole === UserRole.Shop) {
+        if (userRole?.shop) {
           router.navigate({ to: '/shop', replace: true });
         }
       }
