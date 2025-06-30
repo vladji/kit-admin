@@ -17,7 +17,7 @@
   --color-border-color: #cfcfcf;
   --color-destructive: #ff3b30;
   --color-alert: #ff0230;
-  --color-modal-backdropp: #628b727a;
+  --color-modal-backdropp: rgba(211, 211, 211, 0.48);
   --color-backdropp: rgba(176, 176, 176, 0.5);
 
   /* custom sizes */
