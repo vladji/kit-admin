@@ -35,6 +35,7 @@ export const GhostButton: FC<Props> = ({
           className,
           '[&.active]:text-brand [&.active]:bg-brand-light/10'
         )}
+        activeOptions={{ exact: true }}
       >
         {!!Icon && <Icon className="text-inherit" size={iconSize} />}
         {!!children && <span>{children}</span>}

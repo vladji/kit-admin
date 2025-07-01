@@ -57,13 +57,13 @@ export const Modal: FC<ModalProps> = ({
         aria-modal="true"
         aria-hidden={true}
         aria-labelledby={title ? 'modal-title' : undefined}
-        className="bg-light absolute top-1/2 left-1/2 max-h-[90vh] w-full -translate-1/2 overflow-y-auto rounded-3xl p-4 lg:w-auto lg:p-8"
+        className="bg-light absolute top-1/2 left-1/2 max-h-[90vh] w-full -translate-1/2 overflow-y-auto rounded-3xl px-4 pt-2 pb-4 lg:w-[560px] lg:max-w-[80vw] lg:min-w-[260px] lg:pt-4"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex justify-end">
           <GhostButton Icon={X} onClick={onClose} />
         </div>
-        <div className="flex-col-gap-8 mt-4">
+        <div className="flex-col-gap-8 mt-1">
           {(!!title || !!subtitle) && (
             <div className="flex-col-gap-2 text-center">
               {!!title && (

@@ -5,7 +5,7 @@ import { bottomNavBarConfig } from '../model/config.tsx';
 export const MobileLayout = () => {
   return (
     <>
-      <main className="main pb-(--bottom-nav-bar-height)">
+      <main className="pb-(--bottom-nav-bar-height)">
         <Outlet />
       </main>
       <BottomNavBar buttons={bottomNavBarConfig} />

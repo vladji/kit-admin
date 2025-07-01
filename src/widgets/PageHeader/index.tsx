@@ -11,16 +11,18 @@ interface Props {
 
 export const PageHeader: FC<Props> = ({ children, title, toBack }) => {
   return (
-    <div className="bg-light sticky top-0 flex h-[68px] items-center justify-between px-4">
-      <div className="flex-gap-2 items-center">
-        {toBack && <GhostButton link="../" Icon={ArrowLeft} />}
-        {!!title && (
-          <Typography as="h3" type="title">
-            {title}
-          </Typography>
-        )}
+    <div className="bg-light sticky top-0 flex items-center px-4 py-4">
+      <div className="flex-gap-2 flex-1 items-start justify-between">
+        <div className="flex-gap-2 items-center">
+          {toBack && <GhostButton link="../" Icon={ArrowLeft} iconSize={22} />}
+          {!!title && (
+            <Typography as="h3" type="title">
+              {title}
+            </Typography>
+          )}
+        </div>
+        {!!children && children}
       </div>
-      {!!children && children}
     </div>
   );
 };
