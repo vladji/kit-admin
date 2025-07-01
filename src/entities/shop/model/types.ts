@@ -1,5 +1,14 @@
-interface ShopCoverProps {
-  image: string | null;
+interface ShopRootProfileProps {
+  rootPhone?: string;
+}
+
+interface ShopProfileProps {
+  name: string | null;
+  shopImage: string | null;
+  rating: number | null;
+  shopPhone?: string;
+  openHours?: ShopOpenHoursProps;
+  readyTime?: ShopReadyTimeProps;
 }
 
 interface ShopOpenHoursProps {
@@ -12,18 +21,20 @@ interface ShopReadyTimeProps {
   max: string | null;
 }
 
+interface ShopCredentialsProps {
+  rootPass?: string;
+  shopAdminPass: string;
+}
+
 export interface ShopProps {
   uniqId: string;
-  phone: string | null;
-  name: string | null;
-  cover: ShopCoverProps;
-  openHours: ShopOpenHoursProps;
-  readyTime: ShopReadyTimeProps;
+  rootProfile?: ShopRootProfileProps;
+  shopProfile: ShopProfileProps;
   profileCompleted: boolean;
   hasMenu: boolean;
-  onAir: boolean;
-  rating?: number;
-  menu_id?: string;
+  enabled: boolean;
+  published: boolean;
+  credentials: ShopCredentialsProps;
 }
 
 export interface ShopTableProps {
@@ -32,5 +43,6 @@ export interface ShopTableProps {
   name: string | null;
   profileCompleted: string;
   hasMenu: string;
-  onAir: string;
+  enabled: string;
+  published: string;
 }

@@ -1,6 +1,5 @@
 import { FormattedMessage } from 'react-intl';
 import type { TableColumnConfig } from 'shared/ui/Table/model/types.ts';
-
 import type { ShopTableProps } from './types.ts';
 
 export const shopTableColumns: TableColumnConfig<ShopTableProps>[] = [
@@ -21,7 +20,11 @@ export const shopTableColumns: TableColumnConfig<ShopTableProps>[] = [
     title: <FormattedMessage defaultMessage="Меню" />,
   },
   {
-    id: 'onAir',
-    title: 'on air',
+    id: 'enabled',
+    title: <FormattedMessage defaultMessage="Включен" />,
+  },
+  {
+    id: 'published',
+    title: <FormattedMessage defaultMessage="Опубликован" />,
   },
 ];

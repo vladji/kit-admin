@@ -9,10 +9,11 @@ export const useShopTableData = () => {
     return data?.map<ShopTableProps>((item) => ({
       id: item.uniqId,
       uniqId: item.uniqId,
-      name: item.name,
+      name: item.shopProfile.name,
       profileCompleted: item.profileCompleted ? '✅' : '❌',
       hasMenu: item.hasMenu ? '✅' : '❌',
-      onAir: item.onAir ? '✅' : '❌',
+      enabled: item.enabled ? '✅' : '❌',
+      published: item.published ? '✅' : '❌',
     }));
   }, [data]);
 
